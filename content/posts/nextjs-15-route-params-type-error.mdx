@@ -1,0 +1,131 @@
+---
+title: '解决 Next.js 15 路由参数的类型错误'
+date: '2024-02-10'
+category: '技术笔记'
+tags: ['Next.js', 'TypeScript', 'Debug']
+excerpt: '记录了在 Next.js 15 中遇到的路由参数类型错误及其解决方案，包括类型定义的演变和最终的解决方案。'
+---
+
+# 解决 Next.js 15 路由参数的类型错误
+
+在将博客项目升级到 Next.js 15 后，遇到了一个有趣的类型错误。这个错误看起来很简单，但实际上反映了 Next.js 15 在类型系统上的一些变化。让我们一起来看看这个问题以及解决过程。
+
+## 问题描述
+
+在构建过程中，遇到了以下错误：
+
+```bash
+Type error: Type '{ params: { slug: string; }; }' does not satisfy the constraint 'PageProps'.
+  Types of property 'params' are incompatible.
+    Type '{ slug: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+```
+
+这个错误出现在动态路由页面组件中，具体是在 `[slug]/page.tsx` 文件里。
+
+## 问题分析
+
+这个错误的本质是 Next.js 15 对页面组件参数类型的要求发生了变化。在之前的版本中, 我们可以简单地这样定义参数类型：
+
+```typescript
+interface PageProps {
+  params: { slug: string }
+}
+
+export default async function PostPage({ params }: PageProps) {
+  // ...
+}
+```
+
+但在 Next.js 15 中，这种方式不再有效。错误信息提示我们 `params` 应该是一个 Promise 类型，这反映了 Next.js 在处理路由参数时的内部变化。
+
+## 解决尝试
+
+### 1. 使用自定义类型定义
+
+首先，我们尝试定义一个符合 Next.js 15 要求的类型：
+
+```typescript
+type Props = {
+  params: {
+    slug: string
+  }
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default async function PostPage({ params, searchParams }: Props) {
+  // ...
+}
+```
+
+这个方案没有成功，仍然得到相同的类型错误。
+
+### 2. 使用内联类型
+
+然后，我们尝试直接在函数参数中定义类型：
+
+```typescript
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
+  // ...
+}
+```
+
+这个方案同样失败了。
+
+### 3. 最终解决方案
+
+经过多次尝试，我们找到了一个实用的解决方案：
+
+1. 使用 `any` 类型来处理路由参数：
+
+```typescript
+export default async function PostPage(props: any) {
+  const slug = props.params.slug
+  const post = await getPostBySlug(slug) as Post
+  const allPosts = await getAllPosts() as PostMeta[]
+  // ...
+}
+```
+
+2. 在 ESLint 配置中禁用 `no-explicit-any` 规则：
+
+```javascript
+// eslint.config.mjs
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
+];
+```
+
+## 经验总结
+
+1. **类型系统的变化**：框架升级可能带来类型系统的变化，需要及时关注官方文档和更新说明。
+
+2. **渐进式调试**：在解决类型问题时，采用渐进式的方法，从简单的解决方案开始尝试，逐步完善。
+
+3. **权衡取舍**：有时候为了解决问题，可能需要在类型安全和代码可用性之间做出权衡。在这个案例中，我们选择使用 `any` 类型并禁用相关的 ESLint 规则。
+
+4. **保持简单**：有时候最简单的解决方案可能是最好的。虽然使用 `any` 类型不是最理想的方案，但它确实解决了问题，而且不影响运行时的行为。
+
+## 后续改进
+
+虽然目前的解决方案能够工作，但还有一些可能的改进方向：
+
+1. 关注 Next.js 后续版本的更新，看是否会提供更好的类型支持。
+2. 考虑创建更精确的类型定义，可能需要参考 Next.js 的源码。
+3. 探索使用自定义的类型守卫来提供更好的类型安全性。
+
+## 参考资料
+
+- [Next.js 15 文档](https://nextjs.org/docs)
+- [TypeScript 文档](https://www.typescriptlang.org/docs)
+- [ESLint 配置指南](https://eslint.org/docs/latest/use/configure/) 
+- [参考文章](https://www.soinside.com/question/dCDEFB7NZrgRKyY2tMsmy5)

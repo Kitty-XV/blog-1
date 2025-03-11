@@ -1,6 +1,4 @@
 <h1 align="center">AI-blog-1</h1>
-<h3 align="center">开源个人博客系统 1</h3>
-
 <p align="center">
   <b>一个高性能、美观的个人博客平台</b><br>
   基于 Next.js 15 和 MDX 构建，支持丰富的交互体验

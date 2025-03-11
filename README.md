@@ -1,6 +1,6 @@
 <h1 align="center">AI-blog-1</h1>
 
-![博客logo](/public/images/milestones/blog.png)
+
 
 <p align="center">
   <b>一个高性能、美观的个人博客平台</b><br>
@@ -17,7 +17,7 @@
   <a href="#许可证">许可证</a>
 </p>
 
-<hr />
+![博客logo](/public/images/milestones/logo.png)
 
 ## 快速开始
 

@@ -1,11 +1,12 @@
 <h1 align="center">AI Blog #1</h1>
 
-![博客logo](/public/images/milestones/logo.png)
+
 
 <p align="center">
   <b>一个完全由AI生成的博客</b><br>
 </p>
 
+![博客logo](/public/images/milestones/logo.png)
 <p align="center">
   <a href="#特性">特性</a> •
   <a href="#快速开始">快速开始</a> •

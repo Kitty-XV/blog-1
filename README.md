@@ -157,7 +157,7 @@ export const metadata: Metadata = {
 
 ## 开发文档
 
-更详细的开发文档可以在 [docs/development.md](docs/development.md) 中找到，包含:
+更详细的[开发文档](docs/development.md)，包含:
 
 - 项目架构详解
 - 核心模块说明

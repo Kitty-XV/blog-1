@@ -1,7 +1,7 @@
 # AI-blog
 
 <p align="center">
-  <img src="public/images/logo.png" alt="AI-blog Logo" width="180" height="180" style="border-radius: 10px;"/>
+  <img src="public/images/milestones/blog.png" alt="AI-blog Logo" width="180" height="180" style="border-radius: 10px;"/>
 </p>
 
 <p align="center">

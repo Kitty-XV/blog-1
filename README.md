@@ -1,10 +1,9 @@
-<h1 align="center">AI-blog-1</h1>
+<h1 align="center">AI Blog #1</h1>
 
-
+![博客logo](/public/images/milestones/logo.png)
 
 <p align="center">
-  <b>一个高性能、美观的个人博客平台</b><br>
-  基于 Next.js 15 和 MDX 构建，支持丰富的交互体验
+  <b>一个完全由AI生成的博客</b><br>
 </p>
 
 <p align="center">
@@ -17,7 +16,7 @@
   <a href="#许可证">许可证</a>
 </p>
 
-![博客logo](/public/images/milestones/logo.png)
+
 
 ## 快速开始
 

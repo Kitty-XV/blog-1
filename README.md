@@ -1,4 +1,4 @@
-<h1 align="center">AI Blog #1 一个完全由AI生成的博客</h1>
+<h1 align="center">AI Blog 系列#1 </h1>
 
 ![博客logo](/public/images/milestones/logo.png)
 

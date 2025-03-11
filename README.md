@@ -1,7 +1,7 @@
 <h1 align="center">AI-blog-1</h1>
-<p align="center">
-  <img src="/public/images/milestones/blog.png" alt="博客logo" width="180" height="180" style="border-radius: 10px;"/>
-</p>
+
+![博客logo](/public/images/milestones/blog.png)
+
 <p align="center">
   <b>一个高性能、美观的个人博客平台</b><br>
   基于 Next.js 15 和 MDX 构建，支持丰富的交互体验

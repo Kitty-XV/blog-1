@@ -109,7 +109,7 @@ pnpm dev
 ```mdx
 ---
 title: "文章标题"
-date: "2023-01-01"
+date: "2024-03-20"
 excerpt: "文章摘要"
 category: "分类"
 tags: ["标签1", "标签2"]
@@ -131,7 +131,7 @@ readingTime: 5
 ```mdx
 ---
 title: "项目标题"
-date: "2023-01-01"
+date: "2024-03-20"
 excerpt: "项目摘要"
 coverImage: "/images/projects/cover.jpg"
 technologies: ["技术1", "技术2"]

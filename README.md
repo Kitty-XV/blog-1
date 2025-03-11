@@ -1,12 +1,9 @@
-# AI-blog
+<h1 align="center">AI-blog-1</h1>
+<h3 align="center">开源个人博客系统 1</h3>
 
 <p align="center">
-  <img src="public/images/milestones/blog.png" alt="AI-blog Logo" width="180" height="180" style="border-radius: 10px;"/>
-</p>
-
-<p align="center">
-  <b>一个现代化、高性能的个人博客系统</b><br>
-  基于 Next.js 15 和 MDX 构建
+  <b>一个高性能、美观的个人博客平台</b><br>
+  基于 Next.js 15 和 MDX 构建，支持丰富的交互体验
 </p>
 
 <p align="center">
@@ -18,6 +15,8 @@
   <a href="#贡献">贡献</a> •
   <a href="#许可证">许可证</a>
 </p>
+
+<hr />
 
 ## 特性
 
@@ -97,7 +96,7 @@ pnpm start
 ```mdx
 ---
 title: "我的文章标题"
-date: "2023-01-01"
+date: "2024-03-20"
 excerpt: "这是文章的摘要，会显示在文章列表中"
 category: "技术"
 tags: ["Next.js", "React", "Web开发"]
@@ -122,7 +121,7 @@ readingTime: 5
 ```mdx
 ---
 title: "项目标题"
-date: "2023-01-01"
+date: "2024-03-20"
 excerpt: "项目摘要"
 coverImage: "/images/projects/cover.jpg"
 technologies: ["Next.js", "React", "TypeScript"]
